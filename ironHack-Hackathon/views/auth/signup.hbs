@@ -1,0 +1,47 @@
+<h2>Signup</h2>
+
+
+<form action="/signup" method="POST">
+  <div class="form-group">
+    <label for="exampleInputPassword1">Name</label>
+    <input id="exampleInputPassword1" type="text" class="form-control" placeholder="Name Last Name">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input id="exampleInputEmail1" type="email" name="email" class="form-control" placeholder="email@email.com">
+    <small id="emailHelp" class="form-text text-muted"> We'll never share your email with anyone else. </small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input id="exampleInputPassword1" type="password" name="password" class="form-control" placeholder="Your password">
+  </div>
+  <button type="submit" class="btn btn-primary">Create Account</button>
+
+  {{#if message}}
+  <div class="error-message">{{ message }}</div>
+  {{/if}}
+  <br><br>
+
+  <p class="account-message">
+    Ya tienes una cuenta?
+    <a href="/login">Login</a>
+  </p>
+</form>
+
+
+<a href="/auth/google"><button id="option-container-google"> Singup con Google</button></a>
+
+
+
+{{!-- <form action="/signup" method="POST" id="form-container">
+  <label for="name">Name</label>
+  <input id="name" type="text" name="name" placeholder="Kanye" />
+  <br /><br />
+  <label for="email">Email</label>
+  <input id="email" type="email" name="email" placeholder="kanye@west.com" />
+  <br /><br />
+  <label for="password">Password</label>
+  <input id="password" type="password" name="password" placeholder="Your password" />
+
+</form>
+<br> --}}

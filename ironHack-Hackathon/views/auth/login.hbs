@@ -1,0 +1,49 @@
+<h2>Login</h2>
+
+
+<form action="/login" method="POST">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input id="exampleInputEmail1" type="email" name="email" class="form-control" placeholder="email@email.com">
+    <small id="emailHelp" class="form-text text-muted"> We'll never share your email with anyone else. </small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input id="exampleInputPassword1" type="password" name="password" class="form-control" placeholder="Your password">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Login</button>
+  {{#if message}}
+  <div class="bg-danger text-light">{{ message }}</div>
+  {{/if}}
+
+
+
+  <p class="account-message">
+    No tienes cuenta?
+    <a href="/signup">Signup</a>
+  </p>
+</form>
+
+<a href="/auth/google"><button id="option-container-google"> Continuar con Google</button></a>
+
+{{!-- <form action="/login" method="POST">
+  <label for="email">Email</label>
+  <input id="email" type="email" name="email" placeholder="kanye@west.com" />
+  <br /><br />
+  <label for="password">Password</label>
+  <input id="password" type="password" name="password" placeholder="Your password" />
+  <button>Login</button>
+
+  {{#if message}}
+  <div class="bg-danger text-light">{{ message }}</div>
+  {{/if}}
+  <br><br>
+
+
+  <p class="account-message">
+    No tienes cuenta?
+    <a href="/signup">Signup</a>
+  </p>
+</form
+<br> --}}

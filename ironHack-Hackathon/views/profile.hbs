@@ -1,0 +1,49 @@
+<div id="artists">
+  <h1>Profile</h1>
+  <br>
+  <a href="/logout">Log Out</a>
+  <h4>name: {{user.name}}</h2>
+  <h4>email: {{user.email}}</h2>
+  {{#if user.googleID}}
+  <img id="foto" src="{{user.image}}" alt="{{user.name}}">
+  {{/if}}
+  <button onclick="sendHRM()">Send HRM</button>
+    <br><br>
+  <form id="sendHrm">
+    <label for="hrm">Heart Rate Monitor - Harcodeado</label>
+    <br>
+    <input type="text" name="hrm" id="hrm">
+  </form>
+</div>
+  
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    let heartBeat;
+    async function sendHRM() { 
+     heartBeat = document.getElementById('hrm').value;
+     const songs = await axios.get(
+        `https://ironhackothon.herokuapp.com/getrec/5e3b383677fe8a46586e047b/${heartBeat}`
+      );
+  console.log(songs)
+  const { data } = songs;
+  data.forEach( song => {
+    const h3 = document.createElement('h3');
+    const p = document.createElement('p');
+    const img = document.createElement('img')
+    const audio = document.createElement('audio')
+    img.src= song.img_url;
+    audio.src=song.preview_url;
+    audio.controls = 'controls';
+    audio.type = 'audio/mp3';
+    h3.innerText = song.song_name;
+    p.innerText = song.artists[0];
+    document.querySelector('#artists').appendChild(h3)
+    document.querySelector('#artists').appendChild(p);
+    document.querySelector('#artists').appendChild(img)
+    document.querySelector('#artists').appendChild(audio);
+    })
+
+    }
+  </script>
+
+
